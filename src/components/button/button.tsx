@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react';
 
 import styles from './button.module.css';
 
-interface IButton {
+export interface IButton {
     variation?: 'primary' | 'secondary';
     type?: 'default' | 'flat' | 'rounded';
     children?: ReactNode | ReactNode[];

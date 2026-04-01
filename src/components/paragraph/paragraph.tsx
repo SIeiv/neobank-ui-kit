@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react';
 
 import styles from './paragraph.module.css';
 
-interface IParagraph {
+export interface IParagraph {
     size?: 'medium' | 'small' | 'large';
     weight?: 'light' | 'normal' | 'semibold' | 'bold';
     children?: ReactNode | ReactNode[];

@@ -16,6 +16,8 @@ export default defineConfig({
         react(),
         dts({
             insertTypesEntry: true,
+            tsconfigPath: './tsconfig.build.json',
+            rollupTypes: true,
         }),
     ],
     test: {
@@ -48,7 +50,7 @@ export default defineConfig({
     build: {
         // Режим библиотеки
         lib: {
-            entry: path.resolve(__dirname, 'src/index.ts'),
+            entry: path.resolve(dirname, 'src/index.ts'),
             name: 'NeobankUiKit',
             fileName: (format) => `neobank-ui-kit.${format}.js`,
         },

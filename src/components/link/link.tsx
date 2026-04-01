@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react';
 
 import styles from './link.module.css';
 
-interface ILink {
+export interface ILink {
     to: string;
     children?: ReactNode | ReactNode[];
     active?: boolean;

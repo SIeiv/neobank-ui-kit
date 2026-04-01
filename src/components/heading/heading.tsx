@@ -3,7 +3,7 @@ import styles from './heading.module.css';
 
 type AllowedTags = 'h1' | 'h2' | 'h3' | 'h4';
 
-interface IHeading {
+export interface IHeading {
     level: AllowedTags extends `h${infer N extends number}` ? N : never;
     children?: ReactNode | ReactNode[];
     style?: CSSProperties;

@@ -1,15 +1,15 @@
 {
   "name": "neobank-ui-kit",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
   "main": "./dist/neobank-ui-kit.umd.js",
   "module": "./dist/neobank-ui-kit.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/my-ui-kit.es.js",
-      "require": "./dist/my-ui-kit.umd.js"
+      "import": "./dist/neobank-ui-kit.es.js",
+      "require": "./dist/neobank-ui-kit.umd.js"
     }
   },
   "files": [
