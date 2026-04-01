@@ -1,0 +1,38 @@
+:root {
+    --default-radius: 16px;
+    --flat-radius: 8px;
+    --rounded-radius: 50px;
+}
+
+.button {
+    padding: 16px;
+    border-radius: var(--default-radius);
+    border-style: none;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 112%;
+    letter-spacing: 2%;
+    color: white;
+
+    cursor: pointer;
+}
+
+.primary {
+    background-color: var(--button-bg-color);
+}
+
+.secondary {
+    padding: 15px;
+    background-color: white;
+    border: solid 1px var(--button-bg-color);
+    color: var(--text-black-color)
+}
+
+.flat {
+    border-radius: var(--flat-radius);
+}
+
+.rounded {
+    border-radius: var(--rounded-radius);
+}

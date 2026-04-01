@@ -1,0 +1,13 @@
+@import './fonts.css';
+
+:root {
+    --button-bg-color: #003CFF;
+    --text-black-color: #1C1C1E;
+
+    --main-font: "Ubuntu", "sans-serif";
+}
+
+* {
+    font-family: var(--main-font);
+}
+
