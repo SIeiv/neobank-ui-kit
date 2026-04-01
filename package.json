@@ -1,16 +1,18 @@
 {
   "name": "neobank-ui-kit",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.8",
   "type": "module",
   "main": "./dist/neobank-ui-kit.umd.js",
   "module": "./dist/neobank-ui-kit.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/neobank-ui-kit.es.js",
       "require": "./dist/neobank-ui-kit.umd.js"
-    }
+    },
+    "./styles": "./dist/neobank-ui-kit.css"
   },
   "files": [
     "dist"
@@ -27,8 +29,7 @@
     "format": "prettier --write --ignore-unknown .",
     "format-files": "prettier --write --ignore-unknown",
     "check": "npm run ts-check && npm run lint && npm run format",
-    "lint-staged": "lint-staged",
-    "postinstall": "echo 'npx lint-staged' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
+    "lint-staged": "lint-staged"
   },
   "peerDependencies": {
     "react": "19.2.4",
