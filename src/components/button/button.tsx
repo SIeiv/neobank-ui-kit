@@ -6,8 +6,8 @@ interface IButton {
     variation?: 'primary' | 'secondary';
     type?: 'default' | 'flat' | 'rounded';
     children?: ReactNode | ReactNode[];
-    style?: CSSProperties;
     disabled?: boolean;
+    style?: CSSProperties;
 }
 
 export const Button = ({ variation = 'primary', type = 'default', disabled = false, style, children }: IButton) => {
