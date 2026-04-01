@@ -2,6 +2,7 @@
 
 :root {
     --button-bg-color: #003cff;
+    --button-hover-bg-color: #7796c0;
     --text-black-color: #1c1c1e;
 
     --main-font: 'Ubuntu', 'sans-serif';

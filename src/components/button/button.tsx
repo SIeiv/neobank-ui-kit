@@ -7,11 +7,16 @@ interface IButton {
     type?: 'default' | 'flat' | 'rounded';
     children?: ReactNode | ReactNode[];
     style?: CSSProperties;
+    disabled?: boolean;
 }
 
-export const Button = ({ variation = 'primary', type = 'default', style, children }: IButton) => {
+export const Button = ({ variation = 'primary', type = 'default', disabled = false, style, children }: IButton) => {
     return (
-        <button style={style} className={`${styles.button} ${styles[variation]} ${styles[type]}`}>
+        <button
+            disabled={disabled}
+            style={style}
+            className={`${styles.button} ${styles[variation]} ${styles[type]} ${disabled && styles[`${variation}_disabled`]}`}
+        >
             {children}
         </button>
     );
