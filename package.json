@@ -1,45 +1,72 @@
 {
   "name": "neobank-ui-kit",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "main": "./dist/neobank-ui-kit.umd.js",
+  "module": "./dist/neobank-ui-kit.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/my-ui-kit.es.js",
+      "require": "./dist/my-ui-kit.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "ts-check": "tsc --noEmit --project ./tsconfig.app.json",
+    "lint": "eslint --fix .",
+    "lint-files": "eslint --fix",
+    "format": "prettier --write --ignore-unknown .",
+    "format-files": "prettier --write --ignore-unknown",
+    "check": "npm run ts-check && npm run lint && npm run format",
+    "lint-staged": "lint-staged",
+    "postinstall": "echo 'npx lint-staged' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
   },
-  "dependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+  "peerDependencies": {
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^5.1.1",
-    "@eslint/js": "^9.39.4",
-    "@storybook/addon-a11y": "^10.3.3",
-    "@storybook/addon-docs": "^10.3.3",
-    "@storybook/addon-onboarding": "^10.3.3",
-    "@storybook/addon-vitest": "^10.3.3",
-    "@storybook/react-vite": "^10.3.3",
-    "@types/node": "^24.12.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "@vitest/browser-playwright": "^4.1.2",
-    "@vitest/coverage-v8": "^4.1.2",
-    "eslint": "^9.39.4",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "eslint-plugin-storybook": "^10.3.3",
-    "globals": "^17.4.0",
-    "playwright": "^1.59.0",
-    "storybook": "^10.3.3",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.57.0",
-    "vite": "^8.0.1",
-    "vite-plugin-dts": "^4.5.4",
-    "vitest": "^4.1.2"
-  }
+    "@chromatic-com/storybook": "5.1.1",
+    "@eslint/js": "9.39.4",
+    "@storybook/addon-a11y": "10.3.3",
+    "@storybook/addon-docs": "10.3.3",
+    "@storybook/addon-onboarding": "10.3.3",
+    "@storybook/addon-vitest": "10.3.3",
+    "@storybook/react-vite": "10.3.3",
+    "@types/node": "24.12.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.1",
+    "@vitest/browser-playwright": "4.1.2",
+    "@vitest/coverage-v8": "4.1.2",
+    "eslint": "9.39.4",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "eslint-plugin-react-refresh": "0.5.2",
+    "eslint-plugin-storybook": "10.3.3",
+    "globals": "17.4.0",
+    "lint-staged": "16.4.0",
+    "playwright": "1.59.0",
+    "prettier": "3.8.1",
+    "storybook": "10.3.3",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.57.0",
+    "vite": "8.0.1",
+    "vite-plugin-dts": "4.5.4",
+    "vitest": "4.1.2"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "ui-kit"
+  ],
+  "license": "MIT"
 }
