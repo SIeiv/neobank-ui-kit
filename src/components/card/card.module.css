@@ -1,0 +1,20 @@
+.card {
+    border-radius: 28px;
+    padding: 32px;
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+}
+
+.light {
+    background-color: var(--card-light-color);
+}
+
+.dark {
+    background-color: var(--card-dark-color);
+}
+
+.shadow {
+    box-shadow: 0px 2px 4px 0px #00000033;
+    box-shadow: 0px 0px 8px 0px #00000014;
+}
