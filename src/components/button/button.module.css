@@ -1,0 +1,58 @@
+:root {
+    --default-radius: 16px;
+    --flat-radius: 8px;
+    --rounded-radius: 50px;
+}
+
+.button {
+    padding: 16px;
+    border-radius: var(--default-radius);
+    border-style: none;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 112%;
+    letter-spacing: 2%;
+    color: white;
+
+    cursor: pointer;
+
+    transition: all 0.15s;
+}
+
+.primary {
+    background-color: var(--button-bg-color);
+}
+
+.primary:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.primary_disabled {
+    background-color: var(--button-hover-bg-color);
+    cursor: not-allowed;
+}
+
+.secondary {
+    padding: 15px;
+    background-color: white;
+    border: solid 1px var(--button-bg-color);
+    color: var(--text-black-color);
+}
+
+.secondary:hover {
+    border-color: var(--button-hover-bg-color);
+}
+
+.secondary_disabled {
+    border-color: var(--button-hover-bg-color);
+    cursor: not-allowed;
+}
+
+.flat {
+    border-radius: var(--flat-radius);
+}
+
+.rounded {
+    border-radius: var(--rounded-radius);
+}

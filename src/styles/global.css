@@ -1,0 +1,20 @@
+@import './fonts.css';
+
+:root {
+    --button-bg-color: #003cff;
+    --button-hover-bg-color: #7796c0;
+
+    --text-black-color: #1c1c1e;
+    --text-gray-color: #1d1929;
+
+    --link-hover-color: #b2a35f;
+
+    --card-light-color: #eaecee;
+    --card-dark-color: #7f92acb2;
+
+    --main-font: 'Ubuntu', 'sans-serif';
+}
+
+* {
+    font-family: var(--main-font);
+}
