@@ -1,7 +1,7 @@
 {
   "name": "neobank-ui-kit",
-  "private": false,
-  "version": "1.1.0",
+  "private": true,
+  "version": "1.2.0",
   "type": "module",
   "main": "./dist/neobank-ui-kit.umd.js",
   "module": "./dist/neobank-ui-kit.es.js",
@@ -12,7 +12,8 @@
       "import": "./dist/neobank-ui-kit.es.js",
       "require": "./dist/neobank-ui-kit.umd.js"
     },
-    "./styles": "./dist/neobank-ui-kit.css"
+    "./styles": "./dist/neobank-ui-kit.css",
+    "./assets/*": "./dist/assets/*"
   },
   "files": [
     "dist"
