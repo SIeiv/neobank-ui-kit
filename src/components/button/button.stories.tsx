@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         variation: 'primary',
-        type: 'rounded',
+        border: 'rounded',
         children: ['Test'],
         style: {},
     },

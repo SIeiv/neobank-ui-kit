@@ -1,4 +1,3 @@
-/// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -8,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import dts from 'vite-plugin-dts';
+
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
@@ -62,8 +62,18 @@ export default defineConfig({
                     'react-dom': 'ReactDOM',
                     'react/jsx-runtime': 'ReactJSXRuntime',
                 },
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name?.endsWith('.svg')) {
+                        return 'assets/[name][extname]';
+                    }
+                    if (assetInfo.name?.endsWith('.css')) {
+                        return '[name][extname]';
+                    }
+                    return 'assets/[name]-[hash][extname]';
+                },
             },
         },
+        assetsInlineLimit: 0,
         sourcemap: true,
         emptyOutDir: true,
     },
