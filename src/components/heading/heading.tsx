@@ -1,18 +1,16 @@
-import type { CSSProperties, ReactNode } from 'react';
 import styles from './heading.module.css';
+import type { IComponent } from '../../types';
 
 type AllowedTags = 'h1' | 'h2' | 'h3' | 'h4';
 
-export interface IHeading {
+export interface IHeading extends IComponent {
     level: AllowedTags extends `h${infer N extends number}` ? N : never;
-    children?: ReactNode | ReactNode[];
-    style?: CSSProperties;
 }
 
-export const Heading = ({ level, children, style }: IHeading) => {
+export const Heading = ({ level, children, style, className }: IHeading) => {
     const Tag: AllowedTags = `h${level}`;
     return (
-        <Tag style={style} className={`${styles.heading} ${styles[Tag]}`}>
+        <Tag style={style} className={`${styles.heading} ${styles[Tag]} ${className}`}>
             {children}
         </Tag>
     );
