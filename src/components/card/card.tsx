@@ -1,17 +1,15 @@
-import type { CSSProperties, ReactNode } from 'react';
-
+import type { IComponent } from '../../types';
 import styles from './card.module.css';
 
-export interface ICard {
+export interface ICard extends IComponent {
     variation?: 'light' | 'dark';
     withShadow?: boolean;
-    children?: ReactNode | ReactNode[];
-    style?: CSSProperties;
+
 }
 
-export const Card = ({ children, style, variation = 'light', withShadow = true }: ICard) => {
+export const Card = ({ children, style, variation = 'light', withShadow = true, className }: ICard) => {
     return (
-        <div className={`${styles.card} ${styles[variation]} ${withShadow && styles.shadow}`} style={style}>
+        <div className={`${styles.card} ${styles[variation]} ${withShadow && styles.shadow} ${className}`} style={style}>
             {children}
         </div>
     );

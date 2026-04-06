@@ -1,22 +1,24 @@
-import type { CSSProperties, ReactNode } from 'react';
-
 import styles from './link.module.css';
 import { NavLink } from 'react-router-dom';
+import type { IComponent } from '../../types';
 
-export interface ILink {
+export interface ILink extends IComponent {
     to: string;
     /** navlink mode requires react-router-dom library */
     tag?: 'a' | 'navlink';
-    children?: ReactNode | ReactNode[];
     active?: boolean;
-    style?: CSSProperties;
 }
 
-export const Link = ({ to, children, active = false, style, tag = 'a' }: ILink) => {
+export const Link = ({ to, children, active = false, style, tag = 'a', className }: ILink) => {
     switch (tag) {
         case 'a': {
             return (
-                <a style={style} className={`${styles.link} ${active && styles.active}`} href={to}>
+                <a
+                    style={style}
+                    rel="noopener noreferrer"
+                    className={`${styles.link} ${active && styles.active} ${className}`}
+                    href={to}
+                >
                     {children}
                 </a>
             );
