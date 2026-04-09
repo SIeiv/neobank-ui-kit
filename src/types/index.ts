@@ -13,3 +13,8 @@ export interface IIcon {
 export interface IIconWithTheme extends IIcon {
     theme?: 'light' | 'dark';
 }
+
+export interface IState<T> {
+    activeState: T
+    setter: (s: T) => void
+}
