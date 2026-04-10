@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# neobank-ui-kit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![npm](https://img.shields.io/npm/v/neobank-ui-kit)](https://www.npmjs.com/package/neobank-ui-kit)
 
-Currently, two official plugins are available:
+## Установка
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+# npm
+npm install neobank-ui-kit
 
-## React Compiler
+# yarn
+yarn add neobank-ui-kit
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-    globalIgnores(['dist']),
-    {
-        files: ['**/*.{ts,tsx}'],
-        extends: [
-            // Other configs...
-
-            // Remove tseslint.configs.recommended and replace with this
-            tseslint.configs.recommendedTypeChecked,
-            // Alternatively, use this for stricter rules
-            tseslint.configs.strictTypeChecked,
-            // Optionally, add this for stylistic rules
-            tseslint.configs.stylisticTypeChecked,
-
-            // Other configs...
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-]);
+# pnpm
+pnpm add neobank-ui-kit
+```
+Далее импортируйте в файл глобальных стилей вашего проекта стили бибилотеки
+```css
+@import 'neobank-ui-kit/styles';
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## Быстрый старт
 
-export default defineConfig([
-    globalIgnores(['dist']),
-    {
-        files: ['**/*.{ts,tsx}'],
-        extends: [
-            // Other configs...
-            // Enable lint rules for React
-            reactX.configs['recommended-typescript'],
-            // Enable lint rules for React DOM
-            reactDom.configs.recommended,
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-]);
+```tsx
+import { Button, Card } from 'neobank-ui-kit';
+import './global.css'
+
+function App() {
+  return (
+    <Card>
+      <Button variation="primary">Отправить</Button>
+    </Card>
+  );
+}
 ```
+
+## Компоненты
+
+- `Button` - Базовая стилизованная кнопка
+- `Card` - Контейнер для контента
+- `Drawer` - Боковая панель
+- `Heading` - Стилизованные заголовки
+- `Link` - Ссылка <a/> или <Navlink/>
+- `Overlay` - Основа для всплывающих окон
+- `Paragraph` - стилизованный текст
+
+## Иконки
+
+- `arrow-icon` - Иконка стрелки (направление и цвет выбираются)
+- `check-icon` - Иконка successful
+- `email-icon` - Иконка почты
+- `menu-icon` - Иконка меню-бургера
+- `send-icon` - Иконка отправить (как в телеграмме и тд)
+
+## Требования к проекту
+
+- react: 19.2.4
+- react-dom: 19.2.4
+- react-router-dom: 7.13.2
