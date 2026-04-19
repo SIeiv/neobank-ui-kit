@@ -13,3 +13,4 @@ export * from './components/icons/check-icon';
 export * from './components/icons/email-icon';
 export * from './components/icons/menu-icon';
 export * from './components/icons/send-icon';
+export * from './components/icons/loading-icon';
