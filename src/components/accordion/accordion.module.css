@@ -1,0 +1,54 @@
+.accordion {
+    border-radius: 8px;
+    background-color: transparent;
+    overflow: hidden;
+    height: 84px;
+    box-sizing: border-box;
+
+    border: 1px solid #E2E8F0
+}
+
+.opened {
+    height: fit-content;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.icon {
+    font-size: 18px;
+    color: #1a1a1a;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.iconOpen {
+    transform: rotate(180deg);
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.contentOpen {
+    grid-template-rows: 1fr;
+}
+
+.text {
+    padding: 0 24px 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1a1a1a;
+}

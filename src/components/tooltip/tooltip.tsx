@@ -14,11 +14,13 @@ export const Tooltip: FC<IPopup> = ({ open, children, className }) => {
 
     useLayoutEffect(() => {
         if (open && tooltipRef.current) {
-            const oCords = open.getBoundingClientRect();
+            const containerRect = open.getBoundingClientRect();
+            //const elementRect = tooltipRef.current.getBoundingClientRect();
+
 
             setTooltipPosition({
-                x: oCords.left,
-                y: oCords.y + oCords.height + 4,
+                x: containerRect.left ,
+                y: containerRect.top + containerRect.height,
             });
 
             open.style.zIndex = '1';

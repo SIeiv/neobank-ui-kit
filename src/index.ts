@@ -10,6 +10,7 @@ export * from './components/drawer';
 export * from './components/tooltip';
 export * from './components/tabs';
 export * from './components/divider';
+export * from './components/accordion';
 
 export * from './components/icons/arrow-icon';
 export * from './components/icons/check-icon';
