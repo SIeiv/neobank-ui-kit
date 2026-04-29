@@ -1,0 +1,19 @@
+.popup {
+    background-color: white;
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 2;
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.showed {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

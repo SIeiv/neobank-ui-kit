@@ -18,3 +18,8 @@ export interface IState<T> {
     activeState: T
     setter: (s: T) => void
 }
+
+export type Link = {
+    text: string
+    to: string
+}
