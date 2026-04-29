@@ -7,6 +7,7 @@ export * from './components/paragraph';
 export * from './components/card';
 export * from './components/overlay';
 export * from './components/drawer';
+export * from './components/tooltip';
 
 export * from './components/icons/arrow-icon';
 export * from './components/icons/check-icon';
