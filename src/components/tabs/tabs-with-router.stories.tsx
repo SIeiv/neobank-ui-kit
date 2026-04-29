@@ -1,10 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { TestEnv } from './testEnviroment';
+import { Tabs } from './tabs-with-router';
+import type { FC } from 'react';
+import type { ITabs } from './tabs';
+
+const test: FC<ITabs> = (props) => {
+    return <div style={{height: 1200}}><Tabs {...props}/></div>
+}
 
 const meta = {
-    component: TestEnv,
-} satisfies Meta<typeof TestEnv>;
+    component: test,
+} satisfies Meta<typeof test>;
 
 export default meta;
 
@@ -18,15 +24,15 @@ export const Default: Story = {
                 to: 'to',
             },
             {
-                text: 'text2',
+                text: 'text',
                 to: 'to',
             },
             {
-                text: 'text3',
+                text: 'text',
                 to: 'to',
             },
             {
-                text: 'text4',
+                text: 'text',
                 to: 'to',
             },
         ],

@@ -1,23 +1,34 @@
 import { useEffect, useRef, useState, type CSSProperties, type FC, type MouseEventHandler } from 'react';
 import styles from './tabs.module.css';
 import type { Link } from '../../types';
-import { BrowserRouter, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 export interface ITabs {
     links: Link[];
     style?: CSSProperties;
 }
 
-export const Tabs: FC<ITabs> = ({ links }) => {
+export const TabsInner: FC<ITabs> = ({ links }) => {
     const location = useLocation();
-
     const linksRef = useRef<HTMLDivElement>(null);
 
     const [indicatorProperties, setIndicatorProperties] = useState({ x: 0, y: 0, width: 100 });
 
+    const updateIndicator = (element: HTMLAnchorElement) => {
+        if (linksRef.current) {
+            const containerRect = linksRef.current.getBoundingClientRect();
+            const elementRect = element.getBoundingClientRect();
+
+            setIndicatorProperties({
+                x: elementRect.left - containerRect.left,
+                y: elementRect.bottom - containerRect.top,
+                width: elementRect.width,
+            });
+        }
+    };
+
     const handleOnClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
-        const cords = e.currentTarget.getBoundingClientRect();
-        setIndicatorProperties({ x: cords.left - 16, y: cords.top + cords.height, width: cords.width + 32 });
+        updateIndicator(e.currentTarget);
     };
 
     useEffect(() => {
@@ -26,46 +37,37 @@ export const Tabs: FC<ITabs> = ({ links }) => {
 
             if (initialIndex !== -1) {
                 const activeLink = linksRef.current.childNodes[initialIndex] as HTMLAnchorElement;
-
                 if (activeLink) {
-                    const cords = activeLink.getBoundingClientRect();
-                    setIndicatorProperties({
-                        x: cords.left - 16,
-                        y: cords.top + cords.height,
-                        width: cords.width + 32,
-                    });
+                    updateIndicator(activeLink);
                 }
             }
         }
     }, [links, location.pathname]);
 
     return (
-        <BrowserRouter>
-            <nav className={styles.nav}>
-                <div className={styles.links} ref={linksRef}>
-                    {links.map((link) => (
-                        <NavLink
-                            onClick={handleOnClick}
-                            className={styles.link}
-                            key={`${link.text}_${link.to}`}
-                            to={link.to}
-                        >
-                            {link.text}
-                        </NavLink>
-                    ))}
-                </div>
-                <div>
-                    <div className={styles.path}></div>
-                    <div
-                        style={{
-                            left: indicatorProperties.x,
-                            top: indicatorProperties.y,
-                            width: indicatorProperties.width,
-                        }}
-                        className={styles.indicator}
-                    ></div>
-                </div>
-            </nav>
-        </BrowserRouter>
+        <nav className={styles.nav}>
+            <div className={styles.links} ref={linksRef}>
+                {links.map((link) => (
+                    <NavLink
+                        onClick={handleOnClick}
+                        className={styles.link}
+                        key={`${link.text}_${link.to}`}
+                        to={link.to}
+                    >
+                        {link.text}
+                    </NavLink>
+                ))}
+
+                <div
+                    style={{
+                        left: indicatorProperties.x,
+                        top: indicatorProperties.y,
+                        width: indicatorProperties.width,
+                    }}
+                    className={styles.indicator}
+                ></div>
+            </div>
+            <div className={styles.path}></div>
+        </nav>
     );
 };
