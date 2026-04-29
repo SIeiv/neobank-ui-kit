@@ -12,13 +12,6 @@ export const Tabs: FC<ITabs> = ({ links }) => {
     const location = useLocation();
 
     const linksRef = useRef<HTMLDivElement>(null);
-    let initialIndicator: number = -1;
-    links.forEach((link, index) => {
-        if (link.to === location.pathname) {
-            initialIndicator = index;
-            return;
-        }
-    });
 
     const [indicatorProperties, setIndicatorProperties] = useState({ x: 0, y: 0, width: 100 });
 
