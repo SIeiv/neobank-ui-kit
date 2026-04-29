@@ -1,5 +1,9 @@
 .popup {
-    background-color: white;
+    background-color: #3D3D3D;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
     position: absolute;
     box-sizing: border-box;
     z-index: 2;

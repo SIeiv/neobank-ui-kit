@@ -18,7 +18,7 @@ export const Tooltip: FC<IPopup> = ({ open, children, className }) => {
             const popup = tooltipRef.current.getBoundingClientRect();
 
             setTooltipPosition({
-                x: oCords.left - popup.width + oCords.width,
+                x: oCords.left - popup.width / 2,
                 y: oCords.y + oCords.height + 4,
             });
 
