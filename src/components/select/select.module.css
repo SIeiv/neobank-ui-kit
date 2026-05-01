@@ -1,0 +1,36 @@
+.select {
+    font-size: 14px;
+    padding: 13px 16px;
+
+    background-color: #f9f5e3;
+    border: solid 1px #80808033;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url('./Expand_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 40px;
+
+    cursor: pointer;
+}
+
+.option {
+    font-size: 14px;
+    padding: 13px 16px;
+
+    background-color: #f9f5e3;
+    border: solid 1px #80808033;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.option:checked {
+    background-color: #80808033;
+}
