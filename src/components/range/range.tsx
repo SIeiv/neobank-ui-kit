@@ -37,7 +37,7 @@ export const Range: FC<IRange> = ({ value, min = 0, max = 100, customValueState,
     return (
         <div>
             <Paragraph style={{ marginBlock: 10 }} weight="semibold">
-                {_value}
+                {customValueState ?? _value}
             </Paragraph>
             <input
                 className={styles.range}
