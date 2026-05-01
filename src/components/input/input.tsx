@@ -15,7 +15,7 @@ export const Input: FC<IInput> = ({ className, state = 'default', errorMsg, requ
     const inputRef = useRef<HTMLInputElement>(null);
 
     return (
-        <>
+        <div>
             {title && (
                 <div className={styles.titleContainer}>
                     <Paragraph style={{ marginBlock: 8 }} weight="semibold">
@@ -50,6 +50,6 @@ export const Input: FC<IInput> = ({ className, state = 'default', errorMsg, requ
                     {errorMsg}
                 </Paragraph>
             )}
-        </>
+        </div>
     );
 };
