@@ -40,7 +40,7 @@ export const Range: FC<IRange> = ({
     }
     useEffect(() => {
         updateSlider();
-    }, []);
+    }, [customValueState]);
 
     return (
         <div>
@@ -54,7 +54,6 @@ export const Range: FC<IRange> = ({
                 value={customValueState ?? _value}
                 onChange={(e) => {
                     if (change) change(e);
-                    updateSlider();
                 }}
                 min={min}
                 max={max}
