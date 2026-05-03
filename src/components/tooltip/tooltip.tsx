@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef, useState, type FC, type ReactNode } from 'react';
-
 import styles from './tooltip.module.css';
 
 interface IPopup {
@@ -13,22 +12,31 @@ export const Tooltip: FC<IPopup> = ({ open, children, className }) => {
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
 
     useLayoutEffect(() => {
-        if (open && tooltipRef.current) {
-            const containerRect = open.getBoundingClientRect();
-            //const elementRect = tooltipRef.current.getBoundingClientRect();
+        if (!open) return;
 
+        const updatePosition = () => {
+            if (open && tooltipRef.current) {
+                const containerRect = open.getBoundingClientRect();
 
-            setTooltipPosition({
-                x: containerRect.left ,
-                y: containerRect.top + containerRect.height,
-            });
+                setTooltipPosition({
+                    x: containerRect.left + window.scrollX,
+                    y: containerRect.top + containerRect.height + window.scrollY,
+                });
+            }
+        };
 
-            open.style.zIndex = '1';
+        updatePosition();
 
-            return () => {
-                open.style.zIndex = '';
-            };
-        }
+        window.addEventListener('scroll', updatePosition, true);
+        window.addEventListener('resize', updatePosition);
+
+        open.style.zIndex = '1';
+
+        return () => {
+            window.removeEventListener('scroll', updatePosition, true);
+            window.removeEventListener('resize', updatePosition);
+            open.style.zIndex = '';
+        };
     }, [open]);
 
     return (
@@ -37,7 +45,11 @@ export const Tooltip: FC<IPopup> = ({ open, children, className }) => {
             onPointerDown={(e) => {
                 e.stopPropagation();
             }}
-            style={{ left: tooltipPosition.x, top: tooltipPosition.y }}
+            style={{
+                left: tooltipPosition.x,
+                top: tooltipPosition.y,
+                position: 'absolute'
+            }}
             ref={tooltipRef}
         >
             {children}

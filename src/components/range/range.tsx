@@ -7,7 +7,15 @@ export interface IRange extends InputHTMLAttributes<HTMLInputElement> {
     customSetter?: (n: string) => void;
 }
 
-export const Range: FC<IRange> = ({ value, min = 0, max = 100, customValueState, customSetter, ...props }) => {
+export const Range: FC<IRange> = ({
+    value,
+    min = 0,
+    max = 100,
+    customValueState,
+    customSetter,
+    onChange: change,
+    ...props
+}) => {
     const [_value, _setValue] = useState(value ?? min ?? 0);
 
     const rangeRef = useRef<HTMLInputElement>(null);
@@ -45,11 +53,7 @@ export const Range: FC<IRange> = ({ value, min = 0, max = 100, customValueState,
                 type="range"
                 value={customValueState ?? _value}
                 onChange={(e) => {
-                    if (customValueState && customSetter) {
-                        customSetter(e.target.value);
-                    } else {
-                        _setValue(e.target.value);
-                    }
+                    if (change) change(e);
                     updateSlider();
                 }}
                 min={min}
