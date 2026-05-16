@@ -16,6 +16,7 @@ export * from './components/select';
 export * from './components/range';
 export * from './components/checkbox';
 export * from "./components/table";
+export * from "./components/dialog";
 
 export * from './components/icons/arrow-icon';
 export * from './components/icons/check-icon';
