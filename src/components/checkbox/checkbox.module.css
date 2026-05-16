@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.input {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.text {
+    user-select: none;
+}

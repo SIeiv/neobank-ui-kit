@@ -1,0 +1,42 @@
+.table {
+    border-collapse: collapse;
+}
+
+.tableHeader {
+    color: #4A5568;
+    font-size: 12px;
+    font-weight: 500;
+    padding-block: 14px;
+    padding-right: 120px;
+    padding-left: 0;
+    text-align: left;
+    white-space: nowrap;
+
+}
+
+.tableHeaderContent {
+    display: flex;
+    justify-content: center;
+}
+
+.tableHeaderButton {
+    border: none;
+    background-color: transparent;
+    height: 13.6px;
+    background-image: url("./Arrow_drop_up.svg");
+    background-position: center;
+    padding-inline: 12px;
+    transition: all 0.15s;
+}
+
+.tableItem {
+    font-size: 12px;
+    font-weight: 500;
+    padding-block: 14px;
+    border-top: solid 1px #E2E8F0;
+    padding-inline: 0;
+}
+
+.flipRotate {
+  transform: rotate(180deg);
+}
