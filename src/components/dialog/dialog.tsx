@@ -10,7 +10,7 @@ export interface IDialog extends IComponent, IState<boolean> {
     header?: string;
 }
 
-export const Dialog: FC<IDialog> = ({ activeState, setter, className, header, ...props }) => {
+export const Dialog: FC<IDialog> = ({ activeState, setter, className, header, children, ...props }) => {
     return (
         <>
             <Overlay activeState={activeState} setter={setter}></Overlay>
@@ -27,6 +27,7 @@ export const Dialog: FC<IDialog> = ({ activeState, setter, className, header, ..
                         <img src={exitIcon} alt="exit" />
                     </button>
                 </div>
+                {children}
             </div>
         </>
     );
